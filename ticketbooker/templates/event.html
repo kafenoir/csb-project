@@ -1,0 +1,15 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<ul class="nav-ul">
+    <li class="nav-li"><a href="{% url 'events' %}">Home</a></li>
+    <li class="nav-li"><a href="{% url 'account' %}">My tickets</a></li>
+    <li class="nav-li" style="float:right"><a href="{% url 'logout' %}">Logout</a></li>
+</ul>
+
+<h1>{{event.name}}</h1>
+<ul>
+    <li>Date: {{event.date}}</li>
+    <li>Tickets left: {{tickets}}</li>
+</ul>

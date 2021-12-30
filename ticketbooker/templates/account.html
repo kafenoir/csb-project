@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<ul class="nav-ul">
+    <li class="nav-li"><a href="{% url 'events' %}">Home</a></li>
+    <li class="nav-li"><a class="active" href="{% url 'account' %}">My tickets</a></li>
+    <li class="nav-li" style="float:right"><a href="{% url 'logout' %}">Logout</a></li>
+</ul>
+
+<h1>My tickets</h1>
+{% if tickets %}
+    <dic class="tickets">
+        <ul class="ticket">
+            {% for ticket in tickets %}
+
+                <li><strong>{{ticket.event}}</strong></li>
+                <li>Ticket id: {{ticket.id}}</li>
+                <li>Ticket price: {{ticket.price}} €</li>
+
+            {% endfor %}
+        </ul>
+    </dic>
+{% else %}
+    <p>No tickets found.</p>
+{% endif %}
+

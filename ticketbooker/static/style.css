@@ -1,0 +1,82 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;           
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px
+}
+
+li {
+    list-style-type: none;
+}
+
+.nav-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+  
+.nav-li {
+    float: left;
+
+}
+
+.nav-li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-li a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: #499eee;
+}
+
+table {
+    width: 100%;
+}
+  
+th {
+    height: 70px;
+    text-align: left;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tickets {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket {
+    border-style: dashed;
+    width: 50%;
+    padding: 10px;
+
+}
+
+.search-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-input {
+    padding: 5px;
+    margin: 2px;
+}

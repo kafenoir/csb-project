@@ -1,0 +1,41 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Ticket Booker</title>
+</head>
+
+<body>
+    <ul class="nav-ul">
+        <li class="nav-li"><a class="active" href="{% url 'events' %}">Home</a></li>
+        <li class="nav-li"><a href="{% url 'account' %}">My tickets</a></li>
+        <li class="nav-li" style="float:right"><a href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+    {% if events %}
+    <table>
+        <tr>
+            <th>Event</th>
+            <th>Date & Time</th>
+        </tr>
+        {% for event in events %}
+        <tr>
+            <th><a href="{% url 'event' event.id %}">{{ event.name }}</a></th>
+            <th>{{ event.date }}</th>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Search events</h2>
+    <form class="search-box" id='search' action="{% url 'search' %}" method="GET">
+        <input class="search-input" type="text" name="search_term" /><br />
+        <input class="search-input" type="submit" value="Search" />
+    </form>
+    {% else %}
+    <p>No events available.</p>
+    {% endif %}
+</body>
+
+</html>
