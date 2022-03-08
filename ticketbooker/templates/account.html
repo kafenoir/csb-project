@@ -2,26 +2,35 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
-<ul class="nav-ul">
-    <li class="nav-li"><a href="{% url 'events' %}">Home</a></li>
-    <li class="nav-li"><a class="active" href="{% url 'account' %}">My tickets</a></li>
-    <li class="nav-li" style="float:right"><a href="{% url 'logout' %}">Logout</a></li>
-</ul>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<h1>My tickets</h1>
-{% if tickets %}
-    <dic class="tickets">
-        <ul class="ticket">
-            {% for ticket in tickets %}
+<head>
+    <title>Ticket Booker - My tickets</title>
+</head>
 
-                <li><strong>{{ticket.event}}</strong></li>
-                <li>Ticket id: {{ticket.id}}</li>
-                <li>Ticket price: {{ticket.price}} €</li>
-
-            {% endfor %}
+<body>
+    <nav>
+        <ul class="nav-ul">
+            <li class="nav-li"><a href="{% url 'events' %}">Home</a></li>
+            <li class="nav-li"><a class="active" href="{% url 'account' %}">My tickets</a></li>
+            <li class="nav-li" style="float:right"><a href="{% url 'logout' %}">Logout</a></li>
         </ul>
-    </dic>
-{% else %}
-    <p>No tickets found.</p>
-{% endif %}
+    </nav>
+    <main>
+        <h1>My tickets</h1>
+        {% if tickets %}
+        {% for ticket in tickets %}
+        <ul class="ticket">
+            <li class="ticket-h">{{ticket.event}}</li>
+            <li>Ticket price: {{ticket.event.price}} €</li>
+            <li>Ticket code: <strong>{{ticket.code}}</strong></li>
+        </ul>
+        {% endfor %}
+        {% else %}
+        <p>No tickets found.</p>
+        {% endif %}
+    </main>
+</body>
 
+</html>

@@ -13,6 +13,7 @@ h2 {
 
 li {
     list-style-type: none;
+    line-height: 1.5;
 }
 
 .nav-ul {
@@ -59,16 +60,15 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.tickets {
-    display: flex;
-    flex-direction: column;
-}
-
 .ticket {
     border-style: dashed;
-    width: 50%;
-    padding: 10px;
+    width: 30%;
+}
 
+.ticket-h {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 .search-box {
@@ -79,4 +79,17 @@ tr:nth-child(even) {
 .search-input {
     padding: 5px;
     margin: 2px;
+}
+
+.purchase-form {
+    display: flex;
+    column-gap: 2px;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
 }

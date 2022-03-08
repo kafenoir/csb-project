@@ -8,15 +8,15 @@ class Account(models.Model):
         return self.user.username
 
 class Event(models.Model):
-    name = models.CharField(max_length=50)
+    name = models.CharField('event name', max_length=50)
     date = models.DateTimeField('event date')
+    price = models.IntegerField('ticket price', default=0)
     def __str__(self):
         return self.name
 
 class Ticket(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     booker = models.ForeignKey(Account, on_delete=models.CASCADE)
-    type = models.CharField(max_length=10)
-    price = models.IntegerField(default=0)
+    code = models.CharField(max_length=12, default=000000000000)
     def __str__(self):
         return self.event.name
